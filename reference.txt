@@ -1,0 +1,4 @@
+1.https://docs.python.org/2.7/index.html Python 2.7.13 documentation
+2.https://docs.scipy.org/doc/numpy/reference/index.html Numpy documentation
+3.http://www.cnblogs.com/jasonfreak/p/5441512.html 使用Python进行描述性统计
+4.http://wowubuntu.com/markdown/#p Markdown 语法说明 (简体中文版) 

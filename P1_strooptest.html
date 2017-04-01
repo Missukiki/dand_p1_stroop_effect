@@ -11786,7 +11786,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
@@ -11805,7 +11805,7 @@ div#notebook {
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[2]:</div>
+<div class="prompt output_prompt">Out[4]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
@@ -11973,7 +11973,7 @@ div#notebook {
 <p><strong>2.此任务的适当假设集是什么？你想执行什么类型的统计测试？为你的选择提供正当理由。</strong></p>
 <blockquote><p>对于这个统计实验，我的猜想是:<strong>在一致文字条件下，人们识别出同等大小列表中词语颜色名称的时间少于不一致文字条件的情形</strong>；<br>
 因此，我认为这个实验的适当假设集应该表示为：</p>
-<p><em>（用 $\mu_C$表示一致文字条件组(</em>Congruent<em>)的总体均值，用 $\mu_I$表示非一致文字条件组(</em>Incongruent<em>)的总体均值）</em><br>
+<p><em>（用 $\mu_C$表示一致文字条件组(Congruent)的总体均值，用 $\mu_I$表示非一致文字条件组(Incongruent)的总体均值）</em><br>
 零假设: $H_0:\mu_C \geq \mu_I$，在一致文字条件下，人们识别出同等大小列表中词语颜色名称的时间不少于不一致文字条件的情形;<br>
 备择假设:$H_A:\mu_C < \mu_I$,在一致文字条件下，人们识别出同等大小列表中词语颜色名称的时间少于不一致文字条件的情形。</p>
 <p>在此实验中，我们应该执行的是一个单变量的相依样本<em>t</em>检验，原因包括：</p>
@@ -12001,18 +12001,18 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">mean_C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">stroop_data</span><span class="p">[</span><span class="s1">&#39;Congruent&#39;</span><span class="p">])</span>
 <span class="n">medium_C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">stroop_data</span><span class="p">[</span><span class="s1">&#39;Congruent&#39;</span><span class="p">])</span>
-<span class="n">var_C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">stroop_data</span><span class="p">[</span><span class="s1">&#39;Congruent&#39;</span><span class="p">])</span>
-<span class="n">std_C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">stroop_data</span><span class="p">[</span><span class="s1">&#39;Congruent&#39;</span><span class="p">])</span>
+<span class="n">var_C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">stroop_data</span><span class="p">[</span><span class="s1">&#39;Congruent&#39;</span><span class="p">],</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">std_C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">stroop_data</span><span class="p">[</span><span class="s1">&#39;Congruent&#39;</span><span class="p">],</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="n">mean_I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">stroop_data</span><span class="p">[</span><span class="s1">&#39;Incongruent&#39;</span><span class="p">])</span>
 <span class="n">medium_I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">stroop_data</span><span class="p">[</span><span class="s1">&#39;Incongruent&#39;</span><span class="p">])</span>
-<span class="n">var_I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">stroop_data</span><span class="p">[</span><span class="s1">&#39;Incongruent&#39;</span><span class="p">])</span>
-<span class="n">std_I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">stroop_data</span><span class="p">[</span><span class="s1">&#39;Incongruent&#39;</span><span class="p">])</span>
+<span class="n">var_I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">stroop_data</span><span class="p">[</span><span class="s1">&#39;Incongruent&#39;</span><span class="p">],</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">std_I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">stroop_data</span><span class="p">[</span><span class="s1">&#39;Incongruent&#39;</span><span class="p">],</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 
 <span class="k">print</span><span class="p">(</span><span class="s2">&quot;     type</span><span class="se">\t</span><span class="s2">平均值</span><span class="se">\t</span><span class="s2">中位数</span><span class="se">\t</span><span class="s2">方差</span><span class="se">\t</span><span class="s2">标准差</span><span class="se">\t\n\</span>
@@ -12034,8 +12034,8 @@ div#notebook {
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>     type	平均值	中位数	方差	标准差	
-一致文字条件组	14.05	14.36	12.14	 3.48	
-非一致文字条件组	22.02	21.02	22.05	 4.70	
+一致文字条件组	14.05	14.36	12.67	 3.56	
+非一致文字条件组	22.02	21.02	23.01	 4.80	
 
 </pre>
 </div>
@@ -12059,7 +12059,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[78]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span>
@@ -12185,7 +12185,7 @@ vwAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[91]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#绘制折线图</span>
@@ -12390,7 +12390,7 @@ RDJOiUBEJOOUCEREMk6JQEQk4/4/jHdoIZdufAgAAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[89]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#计算自由度 df</span>
@@ -12452,7 +12452,7 @@ RDJOiUBEJOOUCEREMk6JQEQk4/4/jHdoIZdufAgAAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[86]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
@@ -12468,7 +12468,7 @@ RDJOiUBEJOOUCEREMk6JQEQk4/4/jHdoIZdufAgAAAAASUVORK5CYII=
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[86]:</div>
+<div class="prompt output_prompt">Out[13]:</div>
 
 
 
@@ -12494,7 +12494,7 @@ RDJOiUBEJOOUCEREMk6JQEQk4/4/jHdoIZdufAgAAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[87]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">cohens_d</span> <span class="o">=</span> <span class="n">mean_diff</span><span class="o">/</span><span class="n">std_dev</span>
